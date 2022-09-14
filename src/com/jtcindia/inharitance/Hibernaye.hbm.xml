@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.jtcindia.inharitance.Student" table="jacob" schema="system">
+<id name="sid" type="int"/>
+<discriminator column="stype"/>
+<property name="sname"/>
+<property name="city"/>
+<property name="status"/>
+<property name="totalfee" type="double"/>
+<subclass name="com.jtcindia.inharitance.CurrentStudent" discriminator-value="cstudent">
+<property name="feebal"/>
+<property name="timing"/>
+<property name="branch"/>
+</subclass>
+<subclass name="com.jtcindia.inharitance.WeekdayStudent" discriminator-value="wstudent">
+<property name="qualification"/>
+<property name="percentage"/>
+<property name="yop"/>
+</subclass>
+<subclass name="com.jtcindia.inharitance.WeekendStudent" discriminator-value="westudent">
+<property name="wcompany"/>
+<property name="wemail"/>
+<property name="wctc" type="double"/>
+</subclass>
+<subclass name="com.jtcindia.inharitance.OldStudent" discriminator-value="ostudemt">
+<property name="oldcompany"/>
+<property name="oldemail"/>
+<property name="oldctc" type="double"/>
+</subclass>
+</class>
+</hibernate-mapping>
